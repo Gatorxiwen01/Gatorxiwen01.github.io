@@ -9,52 +9,69 @@ output:
 
 # Example of plotly
 
-We're gonna look at NY NOAA data.
+We're gonna look at Instacart data.
 
 ```{r}
 library(tidyverse)
 library(plotly)
-nynoaadat <- read_csv("nynoaadat.csv")
+library(p8105.datasets)
+data(ny_noaa)
 ```
-
 # Plotly Plots
-
-## Precipitation Over Time
+## scatterplot
 ```{r}
-precip_plot <- nynoaadat |> 
+temp_scatter_plot <- ny_noaa |> 
+  filter(!is.na(tmax) & !is.na(tmin)) |>
+  sample_n(1000) |> 
+  plot_ly(
+    x = ~tmax, 
+    y = ~tmin, 
+    type = "scatter", 
+    mode = "markers",
+    marker = list(color = "purple", size = 5, opacity = 0.5)
+  ) 
+
+temp_scatter_plot
+```
+## Barplot
+```{r}
+precip_agg <- ny_noaa |> 
+  filter(!is.na(prcp)) |> 
+  group_by(date) |>     
+  summarise(total_precip = sum(prcp, na.rm = TRUE)) 
+
+precip_plot <- precip_agg |> 
   plot_ly(
     x = ~date, 
-    y = ~prcp, 
-    type = "scatter", 
-    mode = "lines",
-    line = list(color = "blue")
+    y = ~total_precip, 
+    type = "bar",
+    marker = list(color = "skyblue")
   )
+
 precip_plot
 ```
-
-## Snowfall by Date
+## Box plot
 ```{r}
-# Bar plot for snowfall
-snowfall_plot <- nynoaadat |> 
-  plot_ly(
-    x = ~date, 
-    y = ~snow, 
-    type = "bar",
-    marker = list(color = "lightblue")
-  )
-snowfall_plot
-```
-
-## Temperature Distribution
-```{r}
-temp_plot <- nynoaadat |> 
-  plot_ly(
+boxplot_temp <- ny_noaa |> 
+  filter(!is.na(tmax) & !is.na(tmin)) |> 
+  sample_n(1000) |> 
+  plot_ly() |> 
+  add_boxplot(
     y = ~tmax, 
-    type = "box",
+    name = "Max Temperature (°C)", 
     boxpoints = "all", 
-    jitter = 0.3,      
-    pointpos = -1.8,
-    marker = list(color = "orange")
+    marker = list(color = "lightblue"), 
+    boxmean = TRUE  # Show the mean
+  ) |> 
+  add_boxplot(
+    y = ~tmin, 
+    name = "Min Temperature (°C)", 
+    boxpoints = "all", 
+    marker = list(color = "lightcoral"), 
+    boxmean = TRUE  # Show the mean
   ) 
-temp_plot
+
+boxplot_temp
 ```
+
+
