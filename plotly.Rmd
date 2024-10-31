@@ -1,0 +1,60 @@
+---
+title: "Plotly"
+output: 
+  html_document:
+    toc: true
+    toc_float: true
+    theme: cerulean
+---
+
+# Example of plotly
+
+We're gonna look at NY NOAA data.
+
+```{r}
+library(tidyverse)
+library(plotly)
+nynoaadat <- read_csv("nynoaadat.csv")
+```
+
+# Plotly Plots
+
+## Precipitation Over Time
+```{r}
+precip_plot <- nynoaadat |> 
+  plot_ly(
+    x = ~date, 
+    y = ~prcp, 
+    type = "scatter", 
+    mode = "lines",
+    line = list(color = "blue")
+  )
+precip_plot
+```
+
+## Snowfall by Date
+```{r}
+# Bar plot for snowfall
+snowfall_plot <- nynoaadat |> 
+  plot_ly(
+    x = ~date, 
+    y = ~snow, 
+    type = "bar",
+    marker = list(color = "lightblue")
+  )
+snowfall_plot
+```
+
+## Temperature Distribution
+```{r}
+temp_plot <- nynoaadat |> 
+  plot_ly(
+    y = ~tmax, 
+    type = "box",
+    boxpoints = "all", 
+    jitter = 0.3,      
+    pointpos = -1.8,
+    marker = list(color = "orange")
+  ) 
+temp_plot
+```
