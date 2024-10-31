@@ -4,7 +4,7 @@ navbar:
   title: "Home"
   right:
     - text: "About"
-      href: about.html
+      href: index.html
     - text: "Plotly"
       href: plotly.html
     - icon: fa-envelope fa-lg
