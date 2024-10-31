@@ -1,0 +1,52 @@
+---
+title: "About me"
+output: 
+  html_document:
+    toc: true
+    toc_float: true
+    theme: cerulean
+---
+
+# Xiwen Wu
+
+New York, NY | (352) 745-5279 | [wuxiwen01@hotmail.com](mailto:wuxiwen01@hotmail.com) | [LinkedIn](https://www.linkedin.com/in/xiwenwu01/)
+
+## Education
+
+**Columbia University Mailman School of Public Health**  
+Master of Public Health (MPH), Biostatistics, expected May 2025  
+Certificate in Advanced Epidemiology
+
+**University of Florida**  
+Bachelor of Science, Marine Science, cum laude, June 2023  
+Dean’s List (2021 Spring, Fall, 2022 Fall)
+
+## Skills and Certifications
+
+- **Data Analysis**: R, Python, SAS, SQL, STATA  
+- **Spatial Analysis Software**: ArcGIS Pro  
+- **Methodologies**: Quantitative and Qualitative Research, Statistical Machine Learning  
+- **Certification**: Esri Cartography Certification  
+- **Languages**: Mandarin (Native), English (Proficient)
+
+## Work Experience
+
+**Bureau of Wastewater Treatment, NYC Department of Environmental Protection**  
+*Intern* (June 2024 - August 2024)  
+- Collected water samples and conducted bacterial concentration testing.
+- Assessed water quality using various techniques including Winkler titration.
+- Awarded for contributions to the Harbor Survey Program.
+
+## Research Experience
+
+**Molluscan Shellfish Aquaculture and Restoration Lab, University of Florida**  
+*Research Assistant* (May 2022 - May 2023)  
+- DNA extraction, gene expression analysis, and phytoplankton cultivation.
+- Published research on the impact of algae blooms on marine ecosystems.
+
+**Reisinger Lab, University of Florida**  
+*Research Assistant* (January 2022 - August 2022)  
+- Conducted studies on crayfish dietary structure and cultivated zooplankton.
+
+
+
